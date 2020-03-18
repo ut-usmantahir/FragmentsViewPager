@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.fragmentsviewpager.adapter.MyMovieAdapter
 import com.example.fragmentsviewpager.databinding.FragmentOneBinding
 import com.example.fragmentsviewpager.R
+import com.example.fragmentsviewpager.listener.MovieRecyclerClickListener
 import com.example.fragmentsviewpager.model.Movie
 import com.example.fragmentsviewpager.network.MoviesApi
 import com.example.fragmentsviewpager.repository.MoviesRepository
@@ -21,7 +23,7 @@ import kotlinx.coroutines.launch
 /**
  * A simple [Fragment] subclass.
  */
-class FragmentOne : Fragment() {
+class FragmentOne : Fragment(),  MovieRecyclerClickListener{
 
     private lateinit var fragBinding: FragmentOneBinding
 
@@ -52,6 +54,8 @@ class FragmentOne : Fragment() {
                         movies as MutableList<Movie>
                     )
 
+                adapterMyMovie.listener = this@FragmentOne
+
                 fragBinding.recyclerMovieList.adapter = adapterMyMovie
             }
 
@@ -62,4 +66,7 @@ class FragmentOne : Fragment() {
         //binding.cameraPreview
     }
 
+    override fun onMovieClicked(position: Int) {
+        Toast.makeText(context, "movie clicked $position", Toast.LENGTH_SHORT).show()
+    }
 }

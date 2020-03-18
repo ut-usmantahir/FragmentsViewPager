@@ -15,11 +15,13 @@ import com.example.fragmentsviewpager.R
 import com.example.fragmentsviewpager.Test
 import com.example.fragmentsviewpager.databinding.LayoutMovieItemBinding
 import com.example.fragmentsviewpager.fragment.FragmentMovie
+import com.example.fragmentsviewpager.listener.MovieRecyclerClickListener
 import com.example.fragmentsviewpager.model.Movie
 
 
 class MyMovieAdapter(private val context: Context, private val movieList: MutableList<Movie>): RecyclerView.Adapter<MyMovieAdapter.MyViewHolder>() {
 
+    var listener: MovieRecyclerClickListener? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int)
             : MyViewHolder {
@@ -44,16 +46,22 @@ class MyMovieAdapter(private val context: Context, private val movieList: Mutabl
                     movieList[position].team +" CREATEDBY "+
                     movieList[position].createdby)
 
-//        Glide.with(context)
-//            .load(movieList[position].imageurl)
-//            .into(holder.binding.imageMovie);
-       // Picasso.get().load(movieList[position].imageurl).into(holder.image)
+/*        Glide.with(context)
+            .load(movieList[position].imageurl)
+            .into(holder.binding.imageMovie);
+        Picasso.get().load(movieList[position].imageurl).into(holder.image)*/
         holder.binding.movie = movieList[position]
 
         holder.binding.root.setOnClickListener {
-            Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
-           val intent = Intent(this.context, Test::class.java)
-        //    intent.putExtra("movie", holder.binding.movie)
+
+//            Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
+
+            listener?.onMovieClicked(position)
+
+/*
+           val intent = Intent(this.context, FragmentMovie::class.java)
+
+                intent.putExtra("movie", holder.binding.movie)
 
             intent.putExtra("name", movieList[position].name)
             intent.putExtra("realname", movieList[position].realname)
@@ -65,15 +73,9 @@ class MyMovieAdapter(private val context: Context, private val movieList: Mutabl
             intent.putExtra("bio", movieList[position].bio)
 
             context.startActivity(intent)
-
+*/
 
         }
-
-
-        
-
-//        holder.binding.txtTeam.text = movieList[position].team
-//        holder.binding.txtCreatedby.text = movieList[position].createdby
 
     }
 
@@ -90,7 +92,6 @@ class MyMovieAdapter(private val context: Context, private val movieList: Mutabl
                 .into(view);
         }
     }
-
 
 }
 

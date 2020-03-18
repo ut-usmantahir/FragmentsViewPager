@@ -10,16 +10,17 @@ class Test : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_one_preview)
-        var bundle = intent.extras
 
-        val name = bundle?.get("name")
-        val realname = bundle?.get("realname")
-        val team =  bundle?.get("team")
-        val firstappearance =    bundle?.get("firstappearance")
-        val createdby =    bundle?.get("createdby")
-        val publisher =    bundle?.get("publisher")
-        val imageurl =    bundle?.get("imageurl")
-        val bio =    bundle?.get("bio")
+        var intent = intent.extras
+
+        val name = intent?.get("name")
+        val realname = intent?.get("realname")
+        val team =  intent?.get("team")
+        val firstappearance =    intent?.get("firstappearance")
+        val createdby =    intent?.get("createdby")
+        val publisher =    intent?.get("publisher")
+        val imageurl =    intent?.get("imageurl")
+        val bio =    intent?.get("bio")
 
 
         Glide.with(this)

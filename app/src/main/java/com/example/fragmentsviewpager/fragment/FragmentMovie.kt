@@ -1,19 +1,18 @@
 package com.example.fragmentsviewpager.fragment
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.fragmentsviewpager.R
+import com.example.fragmentsviewpager.listener.MovieRecyclerClickListener
 import kotlinx.android.synthetic.main.fragment_one_preview.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class FragmentMovie : Fragment() {
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,8 +21,7 @@ class FragmentMovie : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_one_preview, container, false)
 
-
-        var bundle = Bundle()
+        /*var bundle = Bundle()
 
         val name = bundle?.get("name")
         val realname = bundle?.get("realname")
@@ -45,8 +43,7 @@ class FragmentMovie : Fragment() {
         txt_createdby.text = createdby.toString()
         txt_publisher.text = publisher.toString()
         txt_bio.text = bio.toString()
-
-
+*/
 
         return view
 
