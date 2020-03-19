@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout  xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<data>
+    <variable
+        name="premovie"
+        type="com.example.fragmentsviewpager.model.Movie" />
+</data>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -27,7 +32,7 @@
 
             <TextView
                 android:id="@+id/txt_name"
-
+                android:text="@={premovie.name, default=`Usman Tahr`}"
                 android:layout_width="366dp"
                 android:layout_height="29dp"
                 android:layout_marginStart="1dp"
@@ -43,7 +48,7 @@
 
             <TextView
                 android:id="@+id/txt_realname"
-
+                android:text="@={premovie.realname, default=`Predestination`}"
                 android:layout_width="361dp"
                 android:layout_height="32dp"
                 android:layout_marginStart="1dp"
@@ -59,7 +64,7 @@
 
             <TextView
                 android:id="@+id/txt_team"
-
+                android:text="@={premovie.team, default=`Predestination`}"
                 android:layout_width="361dp"
                 android:layout_height="33dp"
                 android:layout_marginStart="1dp"
@@ -75,7 +80,7 @@
 
             <TextView
                 android:id="@+id/txt_firstappearance"
-
+                android:text="@={premovie.firstappearance, default=`Avengers`}"
                 android:layout_width="365dp"
                 android:layout_height="39dp"
                 android:layout_marginStart="1dp"
@@ -91,7 +96,7 @@
 
             <TextView
                 android:id="@+id/txt_createdby"
-
+                android:text="@={premovie.createdby, default=`Avengers`}"
                 android:layout_width="364dp"
                 android:layout_height="38dp"
                 android:layout_marginStart="1dp"
@@ -107,7 +112,7 @@
 
             <TextView
                 android:id="@+id/txt_publisher"
-
+                android:text="@={premovie.publisher, default=`Publisherr`}"
                 android:layout_width="364dp"
                 android:layout_height="37dp"
                 android:layout_marginStart="1dp"
@@ -122,7 +127,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txt_createdby" />
             <TextView
                 android:id="@+id/txt_bio"
-
+                android:text="@={premovie.bio, default=`This is bio`}"
                 android:layout_width="372dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -140,3 +145,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+</layout>

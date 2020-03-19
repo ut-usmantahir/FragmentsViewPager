@@ -8,10 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.fragmentsviewpager.MainActivity
 import com.example.fragmentsviewpager.adapter.MyMovieAdapter
 import com.example.fragmentsviewpager.databinding.FragmentOneBinding
 import com.example.fragmentsviewpager.R
+import com.example.fragmentsviewpager.listener.MovieFragmentOneHandler
 import com.example.fragmentsviewpager.listener.MovieRecyclerClickListener
 import com.example.fragmentsviewpager.model.Movie
 import com.example.fragmentsviewpager.network.MoviesApi
@@ -23,7 +26,7 @@ import kotlinx.coroutines.launch
 /**
  * A simple [Fragment] subclass.
  */
-class FragmentOne : Fragment(),  MovieRecyclerClickListener{
+class FragmentOne(val ilistener: MovieFragmentOneHandler) : Fragment(),  MovieRecyclerClickListener{
 
     private lateinit var fragBinding: FragmentOneBinding
 
@@ -56,6 +59,7 @@ class FragmentOne : Fragment(),  MovieRecyclerClickListener{
 
                 adapterMyMovie.listener = this@FragmentOne
 
+
                 fragBinding.recyclerMovieList.adapter = adapterMyMovie
             }
 
@@ -66,7 +70,11 @@ class FragmentOne : Fragment(),  MovieRecyclerClickListener{
         //binding.cameraPreview
     }
 
-    override fun onMovieClicked(position: Int) {
-        Toast.makeText(context, "movie clicked $position", Toast.LENGTH_SHORT).show()
+    override fun onMovieClicked(position: Int, movie: Movie) {
+        Toast.makeText(context, "movie clicked $position $movie", Toast.LENGTH_SHORT).show()
+
+
+        ilistener.onMovieAdapter(1, movie)
+
     }
 }

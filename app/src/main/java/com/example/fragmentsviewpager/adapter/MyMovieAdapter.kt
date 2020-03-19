@@ -56,7 +56,7 @@ class MyMovieAdapter(private val context: Context, private val movieList: Mutabl
 
 //            Toast.makeText(context, "clicked", Toast.LENGTH_SHORT).show()
 
-            listener?.onMovieClicked(position)
+            listener?.onMovieClicked(position,movieList[position])
 
 /*
            val intent = Intent(this.context, FragmentMovie::class.java)

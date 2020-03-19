@@ -5,10 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
 import com.example.fragmentsviewpager.R
-import com.example.fragmentsviewpager.listener.MovieRecyclerClickListener
-import kotlinx.android.synthetic.main.fragment_one_preview.*
 
 class FragmentMovie : Fragment() {
 
@@ -19,7 +16,7 @@ class FragmentMovie : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_one_preview, container, false)
+        val view = inflater.inflate(R.layout.fragment_two, container, false)
 
         /*var bundle = Bundle()
 
